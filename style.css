@@ -1,0 +1,16 @@
+:root {
+  background-color: rgb(37, 37, 37);
+  color: white;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.password-generator {
+  width: 200px;
+}
