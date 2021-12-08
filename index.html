@@ -8,57 +8,75 @@
     <title>Password Generator</title>
   </head>
   <body>
-    <div class="password-generator">
-      <div class="password-field">
-        <label for="password">Password:</label>
-        <input name="password" type="text" />
-      </div>
-      <div class="range-selector">
-        <input
-          class="password-length"
-          name="password-length"
-          type="range"
-          min="4"
-          max="64"
-          value="14"
-        />
-      </div>
-      <div class="checkboxes">
-        <input
-          type="checkbox"
-          name="include-numbers"
-          id="include-numbers"
-          checked
-        />
-        <label for="include-numbers">Numbers</label>
-        <input
-          type="checkbox"
-          name="include-letters"
-          id="include-letters"
-          checked
-        />
-        <label for="include-letters">Letters</label>
-        <input
-          type="checkbox"
-          name="include-symbols"
-          id="include-symbols"
-          checked
-        />
-        <label for="include-symbols">Symbols</label>
-        <input
-          type="checkbox"
-          name="include-uppercase"
-          id="include-uppercase"
-          checked
-        />
-        <label for="include-uppercase">Uppercase</label>
-        <input
-          type="checkbox"
-          name="include-lowercase"
-          id="include-lowercase"
-          checked
-        />
-        <label for="include-lowercase">Lowercase</label>
+    <div class="container">
+      <div class="password-generator">
+        <div class="password-field">
+          <label for="password">Password</label>
+          <input class="password" id="password" name="password" type="text" />
+
+          <div class="range-selector">
+            <input
+              class="password-length"
+              name="password-length"
+              type="range"
+              min="1"
+              max="64"
+              value="14"
+            />
+          </div>
+        </div>
+
+        <div class="checkboxes">
+          <div>
+            <input
+              type="checkbox"
+              name="include-numbers"
+              id="include-numbers"
+              checked
+            />
+            <label for="include-numbers">Numbers</label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              name="include-letters"
+              id="include-letters"
+              checked
+            />
+            <label for="include-letters">Letters</label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              name="include-symbols"
+              id="include-symbols"
+              checked
+            />
+            <label for="include-symbols">Symbols</label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              name="include-uppercase"
+              id="include-uppercase"
+              checked
+            />
+            <label for="include-uppercase">Uppercase</label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              name="include-lowercase"
+              id="include-lowercase"
+              checked
+            />
+            <label for="include-lowercase">Lowercase</label>
+          </div>
+        </div>
       </div>
     </div>
   </body>

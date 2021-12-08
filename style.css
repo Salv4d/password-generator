@@ -1,16 +1,62 @@
 :root {
   background-color: rgb(37, 37, 37);
   color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
+  margin: 0;
+}
+
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 100vw;
   height: 100vh;
 }
 
 .password-generator {
-  width: 200px;
+  display: flex;
+  flex-direction: row;
+
+  flex-wrap: wrap;
+  width: 600px;
+  height: 100px;
+}
+
+.password-field {
+  justify-content: center;
+  position: relative;
+}
+
+.password-field input {
+  width: 300px;
+  height: fit-content;
+  font-size: 25pt;
+  padding: 10px 0 0 10px;
+  border-radius: 10px;
+  border: 1px solid gray;
+}
+
+.password-field label {
+  position: absolute;
+  color: rgb(75, 75, 75);
+  font-size: 10pt;
+  margin: 1px 0 0 10px;
+}
+
+.checkboxes {
+  width: 120px;
+}
+
+.password-length {
+  width: 300px;
+  align-self: flex-start;
 }
