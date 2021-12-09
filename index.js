@@ -1,13 +1,51 @@
-const passwordLength = document.querySelector(".password-length");
+const passwordOptions = {
+  lowercase: "abcdefghijklmnopqrstuvwxyz",
+  uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  numbers: "0123456789",
+  symbols: "~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/",
+};
 
-passwordLength.addEventListener("input", ({ target }) => {
-  const length = target.value;
+const getPasswordOptions = () => {
+  const checkboxes = document.querySelectorAll(
+    "input[name=password-options]:checked"
+  );
 
-  setPassword(generatePassword(length));
-});
+  let options = "";
+
+  for (checkbox of checkboxes) {
+    options += passwordOptions[checkbox.value];
+  }
+
+  return options;
+};
+
+const getPasswordLength = () => {
+  return document.querySelector(".password-length").value;
+};
+
+const generatePasswordArray = (length) => {
+  const passwordArray = new Uint8Array(length);
+
+  return crypto.getRandomValues(passwordArray);
+};
 
 const generatePassword = (length) => {
-  return Math.floor(Math.random() * 10 ** length);
+  const passwordArray = generatePasswordArray(length);
+  const passwordOptions = getPasswordOptions();
+
+  let password = "";
+
+  for (index of passwordArray) {
+    password += generateChar(index, passwordOptions);
+  }
+
+  return password;
+};
+
+const generateChar = (index, passwordOptions) => {
+  charIdx = Math.floor((index / 255) * passwordOptions.length) - 1;
+
+  return passwordOptions[charIdx];
 };
 
 const setPassword = (password) => {
@@ -16,4 +54,12 @@ const setPassword = (password) => {
   return password;
 };
 
-setPassword(generatePassword(passwordLength.value));
+const passwordGenerator = document.querySelector(".password-generator");
+
+passwordGenerator.addEventListener("change", ({ target }) => {
+  const length = getPasswordLength();
+
+  setPassword(generatePassword(length));
+});
+
+setPassword(generatePassword(getPasswordLength()));
