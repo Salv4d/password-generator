@@ -29,7 +29,8 @@ const generatePasswordArray = (length) => {
   return crypto.getRandomValues(passwordArray);
 };
 
-const generatePassword = (length) => {
+const generatePassword = () => {
+  const length = getPasswordLength();
   const passwordArray = generatePasswordArray(length);
   const passwordOptions = getPasswordOptions();
 
@@ -38,6 +39,8 @@ const generatePassword = (length) => {
   for (index of passwordArray) {
     password += generateChar(index, passwordOptions);
   }
+
+  setPassword(password);
 
   return password;
 };
@@ -56,16 +59,15 @@ const setPassword = (password) => {
 
 const passwordGenerator = document.querySelector(".password-generator");
 
-passwordGenerator.addEventListener("change", ({ target }) => {
-  const length = getPasswordLength();
-
-  setPassword(generatePassword(length));
+passwordGenerator.addEventListener("change", () => {
+  setPassword(generatePassword());
 });
 
 const rangeSelector = document.querySelector(".password-length");
 
 rangeSelector.addEventListener("wheel", (e) => {
   e.preventDefault();
+
   const { deltaY } = e;
 
   if (deltaY > 0) {
@@ -78,4 +80,10 @@ rangeSelector.addEventListener("wheel", (e) => {
   passwordGenerator.dispatchEvent(event);
 });
 
-setPassword(generatePassword(getPasswordLength()));
+const generatePasswordBtn = document.querySelector("button");
+
+generatePasswordBtn.addEventListener("click", (e) => {
+  generatePassword();
+});
+
+generatePassword();
