@@ -43,7 +43,7 @@ const generatePassword = (length) => {
 };
 
 const generateChar = (index, passwordOptions) => {
-  charIdx = Math.floor((index / 255) * passwordOptions.length) - 1;
+  charIdx = Math.floor((index / 256) * passwordOptions.length);
 
   return passwordOptions[charIdx];
 };
