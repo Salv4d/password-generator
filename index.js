@@ -62,4 +62,20 @@ passwordGenerator.addEventListener("change", ({ target }) => {
   setPassword(generatePassword(length));
 });
 
+const rangeSelector = document.querySelector(".password-length");
+
+rangeSelector.addEventListener("wheel", (e) => {
+  e.preventDefault();
+  const { deltaY } = e;
+
+  if (deltaY > 0) {
+    rangeSelector.value += 1;
+  } else {
+    rangeSelector.value -= 1;
+  }
+
+  const event = new Event("change");
+  passwordGenerator.dispatchEvent(event);
+});
+
 setPassword(generatePassword(getPasswordLength()));
