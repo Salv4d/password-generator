@@ -63,11 +63,13 @@ header {
 }
 
 .length-number input {
-  font-size: 25pt;
-  min-width: 20px;
+  font-size: 20pt;
+  min-width: 50px;
   width: 7vw;
+  max-width: 53px;
   border-radius: 10px;
   text-align: center;
+  padding: 2px;
 }
 
 .range-selector {
@@ -79,10 +81,29 @@ header {
   position: relative;
   min-width: 10px;
   width: 60vw;
+  max-width: 447px;
+  flex-shrink: 0;
 }
 
 .checkboxes {
   width: 200px;
+}
+
+.generate-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.generate-button button {
+  position: relative;
+  font-weight: bold;
+  color: white;
+  border-radius: 10px;
+  border: 2px solid white;
+  background-color: rgb(22, 123, 255);
+  padding: 15px 25px;
 }
 
 input::-webkit-outer-spin-button,
