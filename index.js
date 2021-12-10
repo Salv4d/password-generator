@@ -57,27 +57,20 @@ const setPassword = (password) => {
   return password;
 };
 
-const passwordGenerator = document.querySelector(".password-generator");
-
-passwordGenerator.addEventListener("input", () => {
-  setPassword(generatePassword());
-});
-
 const rangeSelector = document.querySelector(".password-length");
 
-rangeSelector.addEventListener("wheel", (e) => {
-  e.preventDefault();
-
-  const { deltaY } = e;
-
+rangeSelector.addEventListener("wheel", ({ deltaY }) => {
   if (deltaY > 0) {
     rangeSelector.value += 1;
   } else {
     rangeSelector.value -= 1;
   }
 
-  const event = new Event("input");
-  passwordGenerator.dispatchEvent(event);
+  generatePassword();
+});
+
+rangeSelector.addEventListener("input", () => {
+  generatePassword();
 });
 
 const generatePasswordBtn = document.querySelector("button");
@@ -96,6 +89,8 @@ checkboxes.addEventListener("change", (e) => {
   if (checkItems.length === 0) {
     e.target.checked = true;
   }
+
+  generatePassword();
 });
 
 generatePassword();
