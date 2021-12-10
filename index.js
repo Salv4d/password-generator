@@ -23,6 +23,11 @@ const getPasswordLength = () => {
   return document.querySelector(".password-length").value;
 };
 
+const setPasswordLength = (length) => {
+  document.querySelector(".password-length").value = length;
+  document.querySelector("#length-number").value = length;
+};
+
 const generatePasswordArray = (length) => {
   const passwordArray = new Uint8Array(length);
 
@@ -57,6 +62,8 @@ const setPassword = (password) => {
   return password;
 };
 
+const lengthSelector = document.querySelector("#length-number");
+
 const rangeSelector = document.querySelector(".password-length");
 
 rangeSelector.addEventListener("wheel", ({ deltaY }) => {
@@ -66,10 +73,20 @@ rangeSelector.addEventListener("wheel", ({ deltaY }) => {
     rangeSelector.value -= 1;
   }
 
+  setPasswordLength(rangeSelector.value);
+
   generatePassword();
 });
 
-rangeSelector.addEventListener("input", () => {
+lengthSelector.addEventListener("change", (e) => {
+  setPasswordLength(e.target.value);
+
+  generatePassword();
+});
+
+rangeSelector.addEventListener("input", (e) => {
+  setPasswordLength(e.target.value);
+
   generatePassword();
 });
 

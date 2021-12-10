@@ -67,6 +67,7 @@ header {
   min-width: 20px;
   width: 7vw;
   border-radius: 10px;
+  text-align: center;
 }
 
 .range-selector {
@@ -82,4 +83,15 @@ header {
 
 .checkboxes {
   width: 200px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
