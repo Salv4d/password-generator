@@ -59,7 +59,7 @@ const setPassword = (password) => {
 
 const passwordGenerator = document.querySelector(".password-generator");
 
-passwordGenerator.addEventListener("change", () => {
+passwordGenerator.addEventListener("input", () => {
   setPassword(generatePassword());
 });
 
@@ -76,7 +76,7 @@ rangeSelector.addEventListener("wheel", (e) => {
     rangeSelector.value -= 1;
   }
 
-  const event = new Event("change");
+  const event = new Event("input");
   passwordGenerator.dispatchEvent(event);
 });
 
