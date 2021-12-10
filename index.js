@@ -86,4 +86,16 @@ generatePasswordBtn.addEventListener("click", (e) => {
   generatePassword();
 });
 
+const checkboxes = document.querySelector(".checkboxes");
+
+checkboxes.addEventListener("change", (e) => {
+  const checkItems = document.querySelectorAll(
+    'input[type="checkbox"]:checked'
+  );
+
+  if (checkItems.length === 0) {
+    e.target.checked = true;
+  }
+});
+
 generatePassword();
