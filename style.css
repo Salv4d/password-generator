@@ -90,11 +90,14 @@ header {
 }
 
 .generate-button {
+  width: 50px;
+  text-align: center;
   position: absolute;
   top: 7%;
   right: 2%;
   font-size: 35pt;
   color: gray;
+  background-color: white;
 }
 
 .generate-button:hover {
