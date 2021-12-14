@@ -110,4 +110,15 @@ checkboxes.addEventListener("change", (e) => {
   generatePassword();
 });
 
+const passwordInput = document.querySelector("#password");
+
+passwordInput.addEventListener("click", function (e) {
+  this.select();
+  this.setSelectionRange(0, 99999);
+
+  navigator.clipboard.writeText(this.value);
+
+  document.querySelector(".tooltiptext").innerText = "Copied to clipboard!";
+});
+
 generatePassword();
