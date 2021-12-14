@@ -90,7 +90,7 @@ rangeSelector.addEventListener("input", (e) => {
   generatePassword();
 });
 
-const generatePasswordBtn = document.querySelector("button");
+const generatePasswordBtn = document.querySelector(".generate-button");
 
 generatePasswordBtn.addEventListener("click", (e) => {
   generatePassword();

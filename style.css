@@ -90,20 +90,15 @@ header {
 }
 
 .generate-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
+  position: absolute;
+  top: 7%;
+  right: 2%;
+  font-size: 35pt;
+  color: gray;
 }
 
-.generate-button button {
-  position: relative;
-  font-weight: bold;
-  color: white;
-  border-radius: 10px;
-  border: 2px solid white;
-  background-color: rgb(22, 123, 255);
-  padding: 15px 25px;
+.generate-button:hover {
+  cursor: pointer;
 }
 
 input::-webkit-outer-spin-button,
