@@ -80,7 +80,7 @@ header {
 .range-selector input {
   position: relative;
   min-width: 10px;
-  width: 60vw;
+  width: 55vw;
   max-width: 447px;
   flex-shrink: 0;
 }
